@@ -65,4 +65,35 @@ public class DemoApplicationTests {
 				.andExpect(content().string("This doughnut is 300 calories and cost 14.95"));
 	}
 
+	// Path Variables Test
+	@Test
+	public void testIndividualPath() throws Exception {
+		int puppyId = 3;
+
+		this.mvc.perform(get(String.format("/puppies/%d/name", puppyId)))
+				.andExpect(status().isOk())
+				.andExpect(content().string("This puppy has ID of 3"));
+	}
+
+	@Test
+	public void testAllPath() throws Exception {
+		int postId = 2;
+		int commentId = 5;
+		
+		this.mvc.perform(get("/blog/posts/{postId}/comments/{commentId}", postId, commentId))
+				.andExpect(status().isOk())
+				.andExpect(content().string("{postId=2, commentId=5}"));
+
+	}
+
+	@Test
+	public void testCustomObjectPath() throws Exception {
+		String type = "board";
+		int length = 2;
+
+		this.mvc.perform(get("/games/type/{type}/length/{length}", type, length))
+				.andExpect(status().isOk())
+				.andExpect(content().string("This is a board game and it takes 2 hr to play"));
+	}
+
 }

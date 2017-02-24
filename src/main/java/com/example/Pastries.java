@@ -2,7 +2,7 @@ package com.example;
 
 public class Pastries {
     private String name;
-    private Integer calories;
+    private int calories;
     private double price;
 
     public String getName() {
@@ -17,7 +17,7 @@ public class Pastries {
         return calories;
     }
 
-    public void setCalories(Integer setCalories) {
+    public void setCalories(int setCalories) {
         this.calories = setCalories;
     }
 

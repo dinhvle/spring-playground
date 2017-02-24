@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.Map;
 
 @RestController
 public class HelloController {
@@ -45,5 +48,22 @@ public class HelloController {
             pastries.getCalories(),
             pastries.getPrice());
     }
+
+    //Path Variables
+    @GetMapping("/puppies/{puppyId}/name")
+    public String getIndividualPath(@PathVariable int puppyId) {
+        return String.format("This puppy has ID of %d", puppyId);
+    }
+
+    @GetMapping("/blog/posts/{postId}/comments/{commentId}")
+    public String getAllPath(@PathVariable Map<String, String> pathVariables) {
+        return pathVariables.toString(); // {postId={postId}, commentId={commentId}}
+    }
+
+    @GetMapping("/games/type/{type}/length/{length}")
+    public String getCustomObjectPath(Games games) {
+        return String.format("This is a %s game and it takes %d hr to play", games.getType(), games.getLength());
+    }
+
     
 }
