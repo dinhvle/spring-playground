@@ -71,11 +71,11 @@ public class FormDataControllerTests {
 
         MockHttpServletRequestBuilder request = post("/rb/object-example")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("first_name", first_name)
-                .param("last_name", last_name);
+                .param("firstName", first_name)
+                .param("lastName", last_name);
 
         this.mvc.perform(request)
-                .andExpect(status().isOk());
-                // .andExpect(content().string(String.format("Person Name: %s %s", first_name, last_name)));
+                .andExpect(status().isOk())
+                .andExpect(content().string(String.format("Person name: %s %s", first_name, last_name)));
     }
 }
