@@ -1,0 +1,29 @@
+POST /rb/individual-example HTTP/1.1
+Host: localhost:8080
+content-type: application/x-www-form-urlencoded
+
+first_name=Dwayne&last_name=Johnson
+
+###
+
+POST /rb/string-example HTTP/1.1
+Host: localhost:8080
+content-type: application/x-www-form-urlencoded
+
+first_name=Dwayne&last_name=Johnson
+
+###
+
+POST /rb/map-example HTTP/1.1
+Host: localhost:8080
+content-type: application/x-www-form-urlencoded
+
+first_name=Dwayne&last_name=Johnson
+
+###
+
+POST /rb/object-example HTTP/1.1
+Host: localhost:8080
+content-type: application/x-www-form-urlencoded
+
+first_name=Dwayne&last_name=Johnson
